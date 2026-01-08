@@ -158,3 +158,35 @@ update-ca-certificates
 This securely trusts OIDC provider.
 
 
+root@sharmaavi91103:~# kubectl get nodes
+kubectl get all -n openwebui
+NAME             STATUS   ROLES           AGE   VERSION
+sharmaavi91103   Ready    control-plane   34h   v1.34.3+k3s1
+NAME                                       READY   STATUS    RESTARTS   AGE
+pod/fake-oidc-574c48747c-lwdsl             1/1     Running   0          34h
+pod/open-webui-0                           1/1     Running   0          34h
+pod/open-webui-ollama-5d99896fd7-jmjlz     1/1     Running   0          34h
+pod/open-webui-pipelines-7d8757f9c-4znjm   1/1     Running   0          34h
+pod/open-webui-redis-c47dbfbcd-kxkwf       1/1     Running   0          34h
+
+NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)     AGE
+service/fake-oidc              ClusterIP   10.43.193.163   <none>        443/TCP     34h
+service/open-webui             ClusterIP   10.43.202.73    <none>        80/TCP      34h
+service/open-webui-ollama      ClusterIP   10.43.43.78     <none>        11434/TCP   34h
+service/open-webui-pipelines   ClusterIP   10.43.199.27    <none>        9099/TCP    34h
+service/open-webui-redis       ClusterIP   10.43.27.96     <none>        6379/TCP    34h
+
+NAME                                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/fake-oidc              1/1     1            1           34h
+deployment.apps/open-webui-ollama      1/1     1            1           34h
+deployment.apps/open-webui-pipelines   1/1     1            1           34h
+deployment.apps/open-webui-redis       1/1     1            1           34h
+
+NAME                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/fake-oidc-574c48747c             1         1         1       34h
+replicaset.apps/open-webui-ollama-5d99896fd7     1         1         1       34h
+replicaset.apps/open-webui-pipelines-7d8757f9c   1         1         1       34h
+replicaset.apps/open-webui-redis-c47dbfbcd       1         1         1       34h
+
+NAME                          READY   AGE
+statefulset.apps/open-webui   1/1     34h
